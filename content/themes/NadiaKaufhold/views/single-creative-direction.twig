@@ -1,0 +1,29 @@
+{% include 'html-header.twig' %}
+{% block head %}
+{% endblock %}
+</head>
+
+    <body class="{{body_class}}" data-source="base.twig">
+    	
+    	{% include 'partials/header.twig' %}
+
+    	 <div id="single" class="creative-direction">
+			<div id="single-content">
+					               	  
+			    {% if post.tb_single %}
+		    
+			    	{% include 'partials/single-content.twig' %}
+
+			    {% endif %}			  
+
+			</div>
+		</div><!-- #single -->
+
+		{% include 'partials/single-footer.twig' %}
+
+    	{% include 'partials/footer.twig' %}
+          
+          
+    </body>
+</html>
+

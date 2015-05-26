@@ -1,0 +1,46 @@
+
+<footer>
+    <div id="bottom-titles">
+         <div id="name">
+         
+            <h1>{{bloginfo('name')}}
+                <div class="tb-words letters type">
+                    <span class="words-wrapper waiting">
+                        <b class="is-visible">Photographer</b>
+                        <b>Designer</b>
+                        <b>Developer</b>
+                    </span>
+                </div>
+            </h1>
+            
+        </div>       
+        {% if cpt %}        
+            <div id="cat_title">
+                <h1 class="{{cpt}}">{{cpt_title}}</h1>
+            </div>
+        {% elseif search_title %}
+            <div id="search-title">
+                <h1>{{search_title}}</h1>
+            </div>
+        {% elseif journal %}
+            <div class='follow'>
+                <h1><a href="http://diary.thomasbrodin.com" target="_blank">Tumblr feed</a</h1>
+        {% else %}
+        {% endif %}
+    </div>
+
+</footer>
+
+{{ function('wp_footer') }}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9862372-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

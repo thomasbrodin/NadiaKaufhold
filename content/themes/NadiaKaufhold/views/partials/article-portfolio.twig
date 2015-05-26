@@ -1,0 +1,44 @@
+<article class="project {{ post.post_type }}" id="project-{{post.ID}}">
+	{% block content %}
+
+		{% if post.get_thumbnail %}
+			
+			<figure class="article_inner" onclick="window.location='{{post.link}}'">
+
+				<div class="article_overlay">
+					<div class="overlay-inner">
+						<div>
+							<h6>{{ post.title }}</h6>
+							<h2>{{ post.ref_hover }}</h2>
+						</div>
+					</div>
+				</div><!-- .article_overlay -->
+
+				{% if post.thumbnail_size == 'ThWidth' %}
+					<img src="{{post.thumbnail.src|resize(100)}}" alt="{{site.name}} - {{post.title}}"/>
+				{% elseif post.thumbnail_size == 'XSWidth' %}
+					<img src="{{post.thumbnail.src|resize(150)}}" alt="{{site.name}} - {{post.title}}"/>
+				{% elseif post.thumbnail_size == 'SWidth' %}
+					<img src="{{post.thumbnail.src|resize(200)}}" alt="{{site.name}} - {{post.title}}"/>
+				{% elseif post.thumbnail_size == 'SMWidth' %}
+					<img src="{{post.thumbnail.src|resize(250)}}" alt="{{site.name}} - {{post.title}}"/>
+				{% elseif post.thumbnail_size == 'MWidth' %}
+					<img src="{{post.thumbnail.src|resize(350)}}" alt="{{site.name}} - {{post.title}}"/>	
+				{% elseif post.thumbnail_size == 'LWidth' %}
+					<img src="{{post.thumbnail.src|resize(450)}}" alt="{{site.name}} - {{post.title}}"/>
+				{% elseif post.thumbnail_size == 'XLWidth' %}
+					<img src="{{post.thumbnail.src|resize(520)}}" alt="{{site.name}} - {{post.title}}"/>
+				{% elseif post.thumbnail_size == 'XXLWidth' %}
+					<img src="{{post.thumbnail.src|resize(600)}}" alt="{{site.name}} - {{post.title}}"/>
+				{% elseif post.thumbnail_size == 'XXXLWidth' %}
+					<img src="{{post.thumbnail.src|resize(900)}}" alt="{{site.name}} - {{post.title}}"/>
+				{% else %}
+					<img src="{{post.thumbnail.src}}" />
+				{% endif %}
+
+			</figure><!-- figure -->
+
+		{% endif %}
+		
+	{% endblock %}
+</article><!-- article -->

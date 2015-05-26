@@ -1,0 +1,33 @@
+{% include 'html-header.twig' %}
+{% block head %}
+{% endblock %}
+</head>
+    
+    <body class="{{body_class}}">
+    
+    <div class="large-bd to-top white"></div>
+    <div class="large-bd to-right white"></div>
+    <div class="large-bd to-bottom white"></div>
+    <div class="large-bd to-left white"></div>
+    <!-- borders-->
+
+    {% include 'partials/header.twig' %}
+    
+    <div class="loading">
+		
+		<div class="about" style="background-image: url('{{TimberImage(post.get_field('portrait')).src}}')"></div>
+
+		<section class="page-content">	
+			<div class="article-body">
+				{{post.content}}
+
+			</div>
+			
+		</section>
+
+	</div>
+	
+	 {% include 'partials/footer.twig' %}
+
+	</body>
+</html>

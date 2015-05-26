@@ -1,0 +1,88 @@
+<div class="single-footer">
+	<div class="row">
+			
+	    <div class="aside">
+		
+			<div class="credits">
+				<h3>{{post.title}}</h3>
+				
+				{% if post.get_field('credits') %}
+					<p>{{ post.get_field('credits')}}</p>
+				{% endif %}
+
+				{% if post.post_type == 'photography' %}
+
+					<ul>
+						{% for term in post.terms('photo_category') %}
+							<li><a href="{{term.link}}">{{term.name}}</a></li>
+						{% endfor %}
+					</ul>
+
+				{% elseif post.post_type == 'creative-direction' %}
+
+					<ul>
+						{% for term in post.terms('project_category') %}
+							<li><a href="{{term.link}}">{{term.name}}</a></li>
+						{% endfor %}
+					</ul>
+
+				{% endif %}
+			</div>
+
+		</div>
+		{% if post.proj_caption %}
+			<div class="post_info">
+				<p class="caption">{{post.proj_caption}}</p>
+    		</div>
+    	 {% endif %}
+    </div>
+	
+    <div class="sharing-wrap">		
+		<a href="javascript:void(0)" id="share-this" class="btn">Share this.</a>
+		<div class="sharing-buttons">
+			<div class="addthis_sharing_toolbox"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54f4b0761b69c728" async="async"></script>
+
+	
+	{% if related %}
+
+		<div class="row">
+			<div class="related">	
+				<h4>More like this.</h4>
+				<div class="row">
+					{% for post in related %}
+					    <article class="related-thumb">
+					    	<figure>
+						    	<a href="{{post.link}}">
+							    	{% if post.get_field('square_th') %}
+							    		<img class="img-responsive" src="{{TimberImage(post.get_field('square_th')).get_src|resize(500)}}" alt="{{site.name}} - {{post.title}}"/>
+							    	{% else %}
+							    		<img class="img-responsive" src="{{ post.thumbnail.src|resize(500, 500,'center')}}" alt="{{site.name}} - {{post.title}}">
+							    	{% endif %}
+							    	<div>
+								    	<figcaption>
+								    		<h5>{{ post.title}}</h5>
+								    	</figcaption>
+								   	</div>
+							    </a>
+							</figure>
+						</article>
+					{% endfor %}
+				</div>
+
+			</div>
+		</div><!-- related -->
+
+		<span>Copyright - {{"now"|date('Y')}}</span>
+	{% else %}
+		<span style="padding-top:12em">Copyright - {{"now"|date('Y')}}</span>
+	{% endif %}
+
+</div><!-- single-footer -->
+
+<div id="arrow-up">
+   	<span id="smooth-scroll">→</span>
+</div><!-- scroll-button-->
+

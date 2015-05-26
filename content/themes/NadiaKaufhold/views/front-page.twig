@@ -1,0 +1,34 @@
+{% include 'html-header.twig' %}
+{% block head %}
+{% endblock %}
+</head>
+    <body class="{{body_class}}" data-source="base.twig">
+        
+        <div class="thin-bd on-top"></div>
+        <div class="thin-bd on-right"></div>
+        <div class="thin-bd on-bottom"></div>
+        <div class="thin-bd on-left"></div>
+        <!-- borders-->
+        
+        <div class="loading">  
+	        {% include 'partials/header.twig' %}
+			
+	            <div id="home" class="wrap T-landing">
+
+				    <section id="wall" role="main" class="clearfix">
+						{% for post in posts %}
+							{% include 'partials/article-portfolio.twig' %}
+						{% endfor %}
+					</section><!-- #wall -->
+				</div><!-- #wrap -->
+
+	        {% include 'partials/footer.twig' %}
+    	</div>
+
+        <div class="loader">
+           	<svg id="loading-T"></svg>
+        </div>
+        <div class="subliminal"></div>
+
+    </body>
+</html>
