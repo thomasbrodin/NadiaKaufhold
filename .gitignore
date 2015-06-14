@@ -8,11 +8,9 @@
 /content/languages
 /content/themes/twentyfifteen
 /content/themes/NadiaKaufhold/config.codekit
+/content/themes/NadiaKaufhold/.codekit-cache
+/content/themes/NadiaKaufhold/css/.sass-cache
 
 /local-config.php
 
 /wp
-
-/content/themes/NadiaKaufhold/.codekit-cache
-
-/content/themes/NadiaKaufhold/css/.sass-cache
