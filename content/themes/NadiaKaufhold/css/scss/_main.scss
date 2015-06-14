@@ -6,7 +6,8 @@
 
 @import "normalize";
 @import "base";
-@import "bourbon" , "neat";;
+@import "bourbon" , "neat";
+@import "flexslider";
 @import "fonts";
 @import "social_buttons";
 
@@ -24,7 +25,9 @@ body, html {
 	background-color:$background;
 	color:#111;
 }
-
+body.home {
+	background-color:white;
+}
 a {
 	color: $text;
 	text-decoration: none;
@@ -45,10 +48,11 @@ a:focus {
 	color: $hover;
 }
 .wrap {
+	@include outer-container(80rem);	
 	display:none;
-	padding:175px 19px 19px 19px;
+	padding:132px 15px 15px;
 	@include media(min-width 768px) {
-       padding:50px;
+       padding:90px 15px 70px;
     }
 }
 #wall {
@@ -79,6 +83,7 @@ a:focus {
     	}
     }
 }
+
 @include media(min-width 768px) {
   .large-bd {
     background: #fff;
@@ -110,12 +115,21 @@ a:focus {
 	top: 0;
 	z-index: 3;
 	margin: 0;
-	padding: 0px 2px 0;
+	padding: 5px 0;
+	width: 100%;
+	@include transition(all 0.5s ease);
 	@include media(min-width 768px) {
-        padding: 12px 12px 0;
+        
     }
     @include media (min-width 321px orientation landscape) { 
-   		border:none
+   	
+	}
+	.container {
+		@include outer-container(80rem);	
+	}
+	&.scrolled {
+		background-color: white;
+		padding:0;
 	}
 }
 
@@ -123,17 +137,14 @@ a:focus {
 #logo {
 	position: relative;
 	min-height: 1px;
-	padding:0 0 0 5px;
+	padding:0 0 0 3px;
+	float: left;
 	@include media(min-width 768px) {
-        padding:7px 0 0 20px;
+        padding:0 0 0 15px;
     }
 	a {
-    	height:90px;
-    	width:90px;
-    	@include media(min-width 768px) {
-    		height:120px;
-    		width:120px;
-    	}
+    	height:70px;
+    	width:70px;
     	display: block;
     	#diamond {
     		visibility: hidden
@@ -150,31 +161,76 @@ a:focus {
 	background: url("img/NK.png");
 }
 
-#main-nav-content {
-	padding:0 0 0 17px;
-	ul{
-		padding:0;
-		margin: 0;
-		li{
-			list-style: none;
-			@include media($mobile){
-				line-height: 1.2
-			}
-			a {
-				font-size: 1.5em;
+#topNav {
+	float: right;
+	@include media($mobile){
+		float: left;
+		clear:both
+	}
+	#main-nav-content {
+		padding:27px 14px 0 0;
+		@include media($mobile) {
+	        padding:0;
+	        margin-top: -3px;
+	    }
+		ul{
+			padding:0;
+			margin: 0;
+			li{
+				list-style: none;
+				display: inline-block;
+				padding: 0 15px;
 				@include media($mobile){
-					font-size: 1.1em
+					line-height: 1.2
 				}
-  				text-transform: uppercase;
-  				font-weight: bold;
+				a {
+					font-size: 1em;
+	  				text-transform: uppercase;
+	  				letter-spacing: -0.02em
+				}
 			}
 		}
 	}
-	@include media(min-width 768px) {
-        padding:0 0 0 35px
-    }
+}
+#main-nav.scrolled #main-nav-content{
+	padding:23px 14px 0 0;
 }
 
+/* HOME
+-------------------------------------------------- */
+#home .flexslider {
+	display: block;
+	position: relative;
+	height: 100%!important;
+	overflow: hidden!important;
+	width: 100%!important;
+	margin: 0;
+	border-radius:0;
+	border:none;
+	box-shadow:none!important;
+}
+#home .flexslider .slides,
+#home .flexslider .slides li{
+	width: 100%!important;
+	height: 100%!important;
+	cursor: pointer;
+}
+#home .flexslider .slides > li {
+	padding:0;
+
+}
+#home .flexslider .bigbg{
+	width: 100%;
+	height: 100%;
+	background: 50% 50% no-repeat;
+	background-size: cover;
+}
+
+/* BLOG & ARCHIVE
+-------------------------------------------------- */
+#inner {
+
+}
 
 /* PAGE 
 -------------------------------------------------- */
@@ -464,10 +520,11 @@ h1.oops a:hover {
 	position:absolute;
 	bottom:0;
 	@include media(min-width 768px) {
-		margin-bottom: -20px;
+		margin-bottom: -40px;
 	}	
 	span{
 		text-align: left;
+		padding-left: 15px
 	}
 	#arrow-up {
 		cursor:pointer;

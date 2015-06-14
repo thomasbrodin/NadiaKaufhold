@@ -13,22 +13,5 @@
 		echo 'Timber not activated. Make sure you activate the plugin in <a href="/wp-admin/plugins.php#timber">/wp-admin/plugins.php</a>';
 	}
 	$context = Timber::get_context();
-	$args = array(
-		'post_type' => 'project',
-		'numberposts' => -1,
-		'post_status' => 'publish',
-        'orderby' => 'menu_order',
-		'order'         => 'ASC',
-		'suppress_filters' => false,
-		'tax_query' => array(
-            array(
-                'taxonomy' => 'project_tag',
-                'field' => 'slug',
-                'terms' => 'featured',
-                'operator' => 'IN'
-            )
-        )
-	);
-	$context['posts'] = Timber::get_posts($args);
-
+	$context['post'] = Timber::get_post();
 	Timber::render('front-page.twig', $context);

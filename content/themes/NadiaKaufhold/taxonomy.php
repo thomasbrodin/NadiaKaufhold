@@ -23,4 +23,10 @@ $context['title'] = $term_name;
 $context['cpt_title'] = $cpt.' : '.$term_name;
 $context['cpt'] = $post_type;
 
+if (is_tax('project_category')){ 
+	array_unshift($templates, 'tax-project_category.twig');
+} else if (is_tax('project_tag')){
+	array_unshift($templates, 'tax-project_category.twig');
+}
+
 Timber::render($templates, $context);

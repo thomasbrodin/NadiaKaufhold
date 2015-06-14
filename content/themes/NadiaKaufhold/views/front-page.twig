@@ -2,14 +2,18 @@
 
 {% block content %}
 
-    <section id="wall" role="main" class="clearfix">
-		{% for post in posts %}
+    <section id="home" role="main" class="clearfix">
 
-		{% set th_padding = post.thumb_pad|join(' ') %}
+	    <div class="flexslider">
+	        <ul class="slides">
+	        	{% for image in post.get_field('full_screen_img') %}
+	          		<li class="slide">
+	          			<div class="bigbg" style="background-image:url('{{TimberImage(image.id).src}}')"></div>
+	          		</li>
+	      		{% endfor %}
+	        </ul>
+	    </div>
 
-			{% include 'partials/article-portfolio.twig' %}
-			
-		{% endfor %}
-	</section><!-- #wall -->
+	</section><!-- #home -->
 
 {% endblock %}

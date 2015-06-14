@@ -19,6 +19,13 @@
 	$context = Timber::get_context();
 	$args = array('post_type' => array('post'), 'numberposts' => -1);
 	$context['posts'] = Timber::get_posts($args);
-	Timber::render('index.twig', $context);
+	$templates = array('index.twig');
+	if (is_home()){
+		$context['actu_title'] = 'Actualites';
+		$context['wp_title'] = 'Procoves - Actualites';
+		array_unshift($templates, 'home.twig');
+	}
+	
+	Timber::render($templates, $context);
 
 

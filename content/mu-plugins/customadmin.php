@@ -49,8 +49,8 @@ function remove_dashboard_widgets()
  */
 function photo_admin_bar_render() {
     hex_add_admin_bar('Projects'); // Parent item
-    hex_add_admin_bar('All Projects', '/wp/wp-admin/edit.php?post_type=projects', 'projects');
-    hex_add_admin_bar('Add new', '/wp/wp-admin/post-new.php?post_type=projects', 'projects');
+    hex_add_admin_bar('All Projects', '/wp/wp-admin/edit.php?post_type=project', 'projects');
+    hex_add_admin_bar('Add new', '/wp/wp-admin/post-new.php?post_type=project', 'projects');
 }
 
 function hex_add_admin_bar($name, $href = '', $parent = '', $custom_meta = array()) {

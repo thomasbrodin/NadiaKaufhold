@@ -1,0 +1,12 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	
+	<div id="inner" class="blog" role="main">
+			{% for post in posts %}
+				{% include ['partials/tease.twig'] %}
+			{% endfor %}
+		</div>
+    </div>        
+
+{% endblock %}
