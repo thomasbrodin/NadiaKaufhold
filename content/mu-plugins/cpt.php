@@ -33,13 +33,13 @@ function hex_cpt() {
         'supports' => array( 'title', 'editor', 'thumbnail', 'revisions',),
         'rewrite' => array( 'slug' => 'projects'),
       );
-  register_post_type( 'projects', $args); 
+  register_post_type( 'project', $args); 
 }
 
 function portfolio_taxonomies() {  
   register_taxonomy(  
-    'photo_category',  
-    'projects',
+    'project_category',  
+    'project',
       array( 
           'hierarchical' => true,  
           'label' => 'Project category', 
@@ -49,8 +49,8 @@ function portfolio_taxonomies() {
       )  
     ); 
   register_taxonomy(  
-    'tb_tag',  
-    'projects',
+    'project_tag',  
+    'project',
       array( 
           'hierarchical' => false,  
           'label' => 'Project tag', 
