@@ -1,5 +1,4 @@
 <?php
-	// include_once('inc/tb-acf.php');
 	include_once ('inc/tb-plugins.php');
 
 	if (!class_exists('Timber')){
@@ -8,9 +7,9 @@
 		});
 		return;
 	}
-	if( function_exists('acf_add_options_page') ) {
-		acf_add_options_page();
-	}
+	// if( function_exists('acf_add_options_page') ) {
+	// 	acf_add_options_page();
+	// }
 	define('THEME_URL', get_template_directory_uri());
 	
 	class StarterSite extends TimberSite {
@@ -34,7 +33,7 @@
 		}
 
 		function add_to_context($data){
-			$context['options'] = get_fields('options');
+			// $context['options'] = get_fields('options');
 			$data['menu'] = new TimberMenu();
 			return $data;
 		}

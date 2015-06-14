@@ -14,7 +14,7 @@
 	}
 	$context = Timber::get_context();
 	$args = array(
-		'post_type' => array('photography', 'creative-direction'),
+		'post_type' => 'project',
 		'numberposts' => -1,
 		'post_status' => 'publish',
         'orderby' => 'menu_order',
@@ -22,7 +22,7 @@
 		'suppress_filters' => false,
 		'tax_query' => array(
             array(
-                'taxonomy' => 'tb_tag',
+                'taxonomy' => 'project_tag',
                 'field' => 'slug',
                 'terms' => 'featured',
                 'operator' => 'IN'

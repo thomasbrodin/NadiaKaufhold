@@ -1,10 +1,8 @@
-$font-stack: 'Apercu';
-$font-secondary:'FreightText Book','georgia', serif;
-$primary-blue:#0044d8;
-$primary-red:#AA9483;
-$primary-green:#20A668;
-$grey:grey;
-$onblack:#AA9483;
+$font-stack: "brandon-grotesque",sans-serif;
+$font-secondary:"ff-tisa-web-pro",serif;
+$text:#847C79;
+$background:#f8f5f6;
+$hover:#AA9483;
 
 $mobile: new-breakpoint(max-width 768px 3);
 
@@ -48,52 +46,4 @@ h5 {
 }
 h6 {
   font-size: em(12);
-}
-
-/* FONT-FACES 
--------------------------------------------------- */
-@font-face {
-  font-family: 'Apercu';
-  src: url('fonts/Apercu Regular.eot'); /* IE9 Compat Modes */
-  src: url('fonts/Apercu Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('fonts/Apercu Regular.woff') format('woff'), /* Modern Browsers */
-       url('fonts/Apercu Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('fonts/Apercu Regular.svg#b36b7256519cc66fbc1432f0c6126806') format('svg'); /* Legacy iOS */
-       
-  font-style:   normal;
-  font-weight:  400;
-}
-@font-face {
-  font-family: 'FreightText Book';
-  src: url('fonts/freighttext-book.eot'); /* IE9 Compat Modes */
-  src: url('fonts/freighttext-book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('fonts/freighttext-book.woff') format('woff'), /* Modern Browsers */
-       url('fonts/freighttext-book.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('fonts/freighttext-book.svg#d9e64e66ba0f4be8f0ea154778490c10') format('svg'); /* Legacy iOS */
-       
-  font-style:   normal;
-  font-weight:  400;
-}
-
-@font-face {
-  font-family: 'Apercu Medium';
-  src: url('fonts/Apercu Medium.eot'); /* IE9 Compat Modes */
-  src: url('fonts/Apercu Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('fonts/Apercu Medium.woff') format('woff'), /* Modern Browsers */
-       url('fonts/Apercu Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('fonts/Apercu Medium.svg#1f6892737f6294042ce80114cc4656fb') format('svg'); /* Legacy iOS */    
-  font-style:   normal;
-  font-weight:  400;
-}
-
-@font-face {
-  font-family: 'FontAwesome';
-  src: url('fonts/fontawesome-webfont.eot?v=4.3.0');
-  src: url('fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), 
-      url('fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), 
-      url('fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), 
-      url('fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), 
-      url('fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
 }

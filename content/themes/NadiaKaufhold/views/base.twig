@@ -4,24 +4,39 @@
 </head>
     <body class="{{body_class}}" data-source="base.twig">
         
-        <div class="thin-bd on-top"></div>
-        <div class="thin-bd on-right"></div>
-        <div class="thin-bd on-bottom"></div>
-        <div class="thin-bd on-left"></div>
+        <div class="large-bd to-top white"></div>
+        <div class="large-bd to-right white"></div>
+        <div class="large-bd to-bottom white"></div>
+        <div class="large-bd to-left white"></div>
         <!-- borders-->
         
-        {% include 'partials/header.twig' %}
+       {% include 'partials/loader.twig' %}    
 
-        <div class="wrap">
-                
-            {% block content %}
-                Sorry, no content
-            {% endblock %}
+        <div class="loading"> 
 
-        </div><!-- #wrap -->
+            {% include 'partials/header.twig' %}
+               
+                <div class="wrap">                     
 
+                    {% block content %}
+                        Sorry, no content
+                    {% endblock %}
+                    
+                </div><!-- #wrap -->
 
-        {% include 'partials/footer.twig' %}
+            {{ function('wp_footer') }} 
+           <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-9862372-1', 'auto');
+              ga('send', 'pageview');
+
+            </script>
+
+        </div>
           
     </body>
 </html>

@@ -15,30 +15,20 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   	  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-     
-     <!--
-          __/\\\\\\\\\\\\\\\_        
-           _\///////\\\/////__       
-            _______\/\\\_______      
-             _______\/\\\_______     
-              _______\/\\\_______    
-               _______\/\\\_______   
-                _______\/\\\_______  
-                 _______\/\\\_______ 
-                  _______\///________
-
-      -->
+      
+      <script src="//use.typekit.net/lkt3glq.js"></script>
+      <script>try{Typekit.load();}catch(e){}</script>
 
       <meta property="og:title" content="{% if wp_title %}{{ site.name }} - {{ wp_title }}{% else %}{{ site.name }}{% endif %}" />
       <meta property="og:description" content="{{site.description}}" />
       <meta property="og:url" content="{{ site.url }}/{% if cpt %}{{cpt}}/{% endif %}{% if post %}{{post.post_type}}/{{post.slug}}/{% endif %}" />
-      <meta property="og:image" content="{% if post.thumbnail %}{{ post.thumbnail.src}}{% else %}{{theme.uri}}/img/bg2.jpg{% endif %}" />
+      <meta property="og:image" content="{% if post.thumbnail %}{{ post.thumbnail.src}}{% else %}{{theme.uri}}/img/nk.png{% endif %}" />
       <meta property="og:site_name" content="{{ site.name }}" />
       <!-- Icons -->
       <link rel="apple-touch-icon-precomposed" href="{{theme.uri}}/img/apple-touch-icon.png">
       <link rel="apple-touch-icon" href="{{theme.uri}}/icon.png"/>
       <link rel="icon" href="{{theme.uri}}/favicon.ico" />
-
+  
   	  {{function('wp_head')}}
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

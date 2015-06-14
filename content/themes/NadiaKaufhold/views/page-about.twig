@@ -1,33 +1,17 @@
-{% include 'html-header.twig' %}
-{% block head %}
-{% endblock %}
-</head>
-    
-    <body class="{{body_class}}">
-    
-    <div class="large-bd to-top white"></div>
-    <div class="large-bd to-right white"></div>
-    <div class="large-bd to-bottom white"></div>
-    <div class="large-bd to-left white"></div>
-    <!-- borders-->
+{% extends "base.twig" %}
 
-    {% include 'partials/header.twig' %}
+{% block content %}
     
-    <div class="loading">
+	<section id="about" class="page-content">	
 		
-		<div class="about" style="background-image: url('{{TimberImage(post.get_field('portrait')).src}}')"></div>
+		<div class="article-body">
+			{{post.content}}
+		</div>
+		
+		<div class="aboutImg"> 
+			<img src="{{TimberImage(post.get_field('about_img')).src}}">
+		</div>
+		
+	</section>
 
-		<section class="page-content">	
-			<div class="article-body">
-				{{post.content}}
-
-			</div>
-			
-		</section>
-
-	</div>
-	
-	 {% include 'partials/footer.twig' %}
-
-	</body>
-</html>
+{% endblock %}

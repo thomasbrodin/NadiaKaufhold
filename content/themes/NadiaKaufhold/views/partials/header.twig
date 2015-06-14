@@ -2,42 +2,23 @@
     
         <header id="main-nav" class="navbar" role="navigation">
                 
-                <div id="logo" class="logo-svg">
+                <div id="logo">
                     <a class="btn-link" href="/" rel="home">
                         <h1>{{bloginfo('name')}}</h1>
-                        {% include 'img/T.svg' %}
+                        {% include 'img/nk.svg' %}
                     </a>
                 </div><!-- logo-->
                 
-                <div id="nav-icons">
-                    
-                    <div id="trigger-overlay">
-                        <i class="hamburger"></i>
-                    </div><!-- menu-button-->
-
-                    <div id="sb-search" class="sb-search">
-                        <form class="search" action="{{site.url}}" method="get" role="search">
-                            <input type="text" name="s" class="sb-search-input" type="text" value="" id="search">
-                            <input class="sb-search-submit" type="submit" value="">
-                            <span class="sb-icon-search"></span>
-                         </form>
-                    </div><!-- search-->
-                
-                </div><!-- nav-icons-->
+                <nav id="main-nav-content" role="navigation">
+                    <ul id="menu-main-nav" class="nav">
+                    {% for item in menu.get_items %}
+                        <li class="nav-main-item{{item.current ? ' active'}}{% if cpt_current == item.title %} active{% endif %}">
+                            <a href="{{item.get_path}}">{{item.title}}</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </nav><!-- nav -->
 
         </header><!-- header-->
-
-         <div id="main-nav-content" role="navigation" class="overlay">
-            <nav>
-                <ul id="menu-main-nav" class="nav">
-                {% for item in menu.get_items %}
-                    <li class="nav-main-item{{item.current ? ' active'}}{% if cpt_current == item.title %} active{% endif %}">
-                        <h6>{{ item.description }}</h6>
-                        <h1><a href="{{item.get_path}}">{{item.title}}</a></h1>
-                    </li>
-                {% endfor %}
-                </ul>
-            </nav>
-        </div><!-- /.overlay nav -->
 
 {% endblock %}

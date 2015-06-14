@@ -1,14 +1,18 @@
+.DS_Store
 /config.codekit
 /.codekit-cache
 
 /content/upgrade
 /content/uploads
+/content/upgrade
+/content/languages
 /content/themes/twentyfifteen
 /content/themes/NadiaKaufhold/config.codekit
 
-/TeaserSite
-
-/index.php
 /local-config.php
 
+/wp
 
+/content/themes/NadiaKaufhold/.codekit-cache
+
+/content/themes/NadiaKaufhold/css/.sass-cache

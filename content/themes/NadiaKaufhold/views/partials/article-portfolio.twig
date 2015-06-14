@@ -1,4 +1,4 @@
-<article class="project {{ post.post_type }}" id="project-{{post.ID}}">
+<article class="project{% if th_padding %} {{ th_padding }}{% endif %}" id="project-{{post.ID}}">
 	{% block content %}
 
 		{% if post.get_thumbnail %}

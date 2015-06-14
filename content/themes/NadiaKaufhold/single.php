@@ -18,13 +18,13 @@ if (post_password_required($post->ID)){
 	Timber::render('single-password.twig', $context);
 } else {
 	$post_id = get_the_ID();
-	$terms = wp_get_post_terms($post_id, 'tb_tag' );
+	$terms = wp_get_post_terms($post_id, 'project_tag' );
 	if (!empty($terms)) {
 		$terms_slugs = array_map(function($item) {
 			                return $item->slug;
 			            }, $terms);
 		$related_posts = new WP_Query(array(
-	        'post_type' => array('photography', 'creative-direction'),
+	        'post_type' => 'project',
 	        'posts_per_page' => 3,
 	        'post_status' => 'publish',
 	        'orderby' => 'menu_order',
@@ -33,7 +33,7 @@ if (post_password_required($post->ID)){
 	        'post__not_in' => array($post_id),
 	        'tax_query' => array(
 	            array(
-	                'taxonomy' => 'tb_tag',
+	                'taxonomy' => 'project_tag',
 	                'field' => 'slug',
 	                'terms' => $terms_slugs,
 	                'operator' => 'IN'
