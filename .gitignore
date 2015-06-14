@@ -14,3 +14,13 @@
 /local-config.php
 
 /wp
+
+/content/plugins/timber-library
+/content/plugins/searchwp
+/content/plugins/akismet
+/content/plugins/contact-form-7
+/content/plugins/.DS_Store
+
+/TeaserSite/config.codekit
+
+/index.php
