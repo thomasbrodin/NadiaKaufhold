@@ -1,5 +1,4 @@
 $font-stack: "brandon-grotesque",sans-serif;
-$font-secondary:"ff-tisa-web-pro",serif;
 $text:#232323;
 $background:#f8f5f6;
 $hover:#AA9483;
@@ -12,6 +11,7 @@ $mobile: new-breakpoint(max-width 768px 3);
 body, html {
   font: 400 16px/1.5em $font-stack;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -25,7 +25,8 @@ body, html {
 	background-color:$background;
 	color:#111;
 }
-body.home {
+body.home,
+body.page-template-page-about{
 	background-color:white;
 }
 a {
@@ -64,7 +65,8 @@ a:focus {
 }
 
 #loader {
-	background: linear-gradient("#ebe9d3", "edc7de");
+	background:url('../img/gradient.jpg')no-repeat center center;
+	background-size:cover;
 	height: 100%;
 	width: 100%;
     left: 0;
@@ -115,20 +117,15 @@ a:focus {
 	top: 0;
 	z-index: 3;
 	margin: 0;
-	padding: 5px 0;
+	padding: 16px 0;
 	width: 100%;
-	@include transition(all 0.5s ease);
-	@include media(min-width 768px) {
-        
-    }
-    @include media (min-width 321px orientation landscape) { 
-   	
-	}
+	@include transition(all 0.5s ease-in);
+	background-color: white;
+	
 	.container {
 		@include outer-container(80rem);	
 	}
 	&.scrolled {
-		background-color: white;
 		padding:0;
 	}
 }
@@ -143,8 +140,8 @@ a:focus {
         padding:0 0 0 15px;
     }
 	a {
-    	height:70px;
-    	width:70px;
+    	height:74px;
+    	width:74px;
     	display: block;
     	#diamond {
     		visibility: hidden
@@ -158,7 +155,10 @@ a:focus {
 	}
 }
 .no-svg #logo a{
-	background: url("img/NK.png");
+	background: url("../img/NK.png");
+}
+#main-nav.scrolled #logo {
+	padding:8px 0 8px 15px;
 }
 
 #topNav {
@@ -168,7 +168,7 @@ a:focus {
 		clear:both
 	}
 	#main-nav-content {
-		padding:27px 14px 0 0;
+		padding:23px 14px 0 0;
 		@include media($mobile) {
 	        padding:0;
 	        margin-top: -3px;
@@ -184,16 +184,16 @@ a:focus {
 					line-height: 1.2
 				}
 				a {
-					font-size: 1em;
+					font-size: em(14);
 	  				text-transform: uppercase;
-	  				letter-spacing: -0.02em
+	  				letter-spacing: 1px
 				}
 			}
 		}
 	}
 }
 #main-nav.scrolled #main-nav-content{
-	padding:23px 14px 0 0;
+	padding:30px 14px 0 0;
 }
 
 /* HOME
@@ -229,7 +229,45 @@ a:focus {
 /* BLOG & ARCHIVE
 -------------------------------------------------- */
 #inner {
-
+	article {
+		@include outer-container(80rem);
+		margin-bottom: 150px;
+		background-color: #FFF;
+		padding:1.3em 1.7em 2.3em;
+		.post-info {
+			@include span-columns(4);
+			h2 {
+				margin: 0 0 35px;
+				letter-spacing: 4px;
+				line-height: 1.4;
+				font-size:em(14);
+				color: #333;
+				text-transform: lowercase;
+				text-align: left;
+			}
+			p {
+				color: #000;
+ 				font-weight:400;
+ 				font-size: em(12);
+ 				line-height: 1.7;
+  				letter-spacing: 0.02em;
+  				border-bottom:1px solid #ccc;
+  				padding-bottom:2em
+			}
+		}
+		.post-img {
+			@include span-columns(8);
+			@include omega();
+			img {
+				max-height:450px;
+				height:auto;
+				max-width:100%;
+			}
+		}
+		&:first-child {
+			margin-top: 95px
+		}
+	}
 }
 
 /* PAGE 
@@ -476,7 +514,10 @@ h1.oops a:hover {
 			h2 {
 				padding:0;
 				margin: 0;
-				text-transform: none
+				text-transform: none;
+				font-size:em(24);
+				letter-spacing: 1px;
+				font-weight: 300
 			}
 			h6 {
 				font-size: 1.1em;
@@ -513,14 +554,37 @@ h1.oops a:hover {
 
 /* SINGLE
 -------------------------------------------------- */
-
+#next-project, #prev-project {
+	top:50%;
+	position:fixed;
+	margin-top:-24px;
+	a {	
+		font-size: em(14);
+		background-color:white;
+		text-transform: lowercase;
+		letter-spacing: 5px;
+	}
+}
+#next-project {
+	right:12px;
+	a {
+		padding:.7em .5em .8em 1em;
+	}
+}
+#prev-project {
+	left:12px;
+	a {
+		padding:.7em .9em .8em .5em;
+	}
+}
 /* SINGLE FOOTER */
 .single-footer {
 	width:100%;
 	position:absolute;
 	bottom:0;
+	float:left;
 	@include media(min-width 768px) {
-		margin-bottom: -40px;
+		margin-bottom: -58px;
 	}	
 	span{
 		text-align: left;
@@ -530,15 +594,15 @@ h1.oops a:hover {
 		cursor:pointer;
 		float:right;
 		z-index:999;
-		font-family: $font-stack;
-		@include transform(rotate(270deg));
-		@include transition(transform 0.7s ease-in-out);
-		display:none;
-		@include media(min-width 768px) {
-	       display:block;
-	       font-size:em(36);
-		   line-height:em(24);
-		   margin-top: -20px;
+		padding:.7em .9em .7em 1em;
+		background-color:white;
+		font-size: em(14);
+		@include transition(all 0.7s ease-in-out);
+		text-transform: lowercase;
+		letter-spacing: 5px;
+	  	span{
+	  		padding-left:0;
+	  		text-align:center
 	  	}
 	}
 	#arrow-up:hover {

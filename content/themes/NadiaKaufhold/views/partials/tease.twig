@@ -1,10 +1,15 @@
 <article class="tease" id="tease-{{post.ID}}">
 	{% block content %}
-		<h2 class="h2"><a href="{{post.link}}">{{post.title}}</a></h2>
-		<p>{{post.get_preview}}</p>
-
-		{% if post.get_thumbnail %}
-			<img src="{{post.thumbnail.src}}" />
-		{% endif %}
+		<div class="post-info">
+			<h2>{{post.title}}</h2>
+			{{post.get_preview(200,'','',false)}}
+		</div>
+		<div class='post-img'>
+			{% if post.get_thumbnail %}
+				<img src="{{post.thumbnail.src}}" />
+			{% else %}
+				<img src="http://placehold.it/300?text=Need+Feature+Image">
+			{% endif %}
+		</div>
 	{% endblock %}
 </article>

@@ -3,7 +3,18 @@
 {% block content %}
 
     <section id="wall" role="main" class="clearfix">
+			
+			{% if post.next %}
+				<div id="next-project">
+					<a href="{{post.next.link}}">next</a>
+				</div>
+			{% endif %}
 
+			{% if post.prev %}
+				<div id="prev-project">
+					<a href="{{post.prev.link}}">previous</a>
+				</div>
+			{% endif %}
 
 	    	 <div id="single-content">
 					               	  
@@ -57,7 +68,7 @@
 			<span>Copyright - {{"now"|date('Y')}}</span>
 
 			<div id="arrow-up">
-			   	<span id="smooth-scroll">→</span>
+			   	<span id="smooth-scroll">Top</span>
 			</div><!-- scroll-button-->
 
 		</div><!-- single-footer -->
