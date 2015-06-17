@@ -21,8 +21,12 @@ jQuery(document).ready(function($) {
 	});
 	/* ============================================================= home */
 	function resizeHome(){
-		windowMax = Math.max($(window).height(),700);
-		$('#home').css({ height:(windowMax-112)});
+		topPad = parseInt($(".wrap").css('padding-top').replace("px", ""),10);
+		botPad = parseInt($(".wrap").css('padding-bottom').replace("px", ""),10);
+		wrapPadding = topPad+botPad;
+		windowMax = $(window).height();
+		console.log(wrapPadding);
+		$('#home').css({ height:(windowMax-wrapPadding)});
 	}
 	if ( $("#home").length ) {
 		/* words typing */
@@ -58,10 +62,8 @@ jQuery(document).ready(function($) {
 				});
 			}
 		});
-		if ( ($(window).width() > 768) ){
-			$(window).on('resize',resizeHome);
-			resizeHome();
-		}
+		$(window).on('resize',resizeHome);
+		resizeHome();
 	}
 	function initHeadline() {
 		//insert <i> element for each letter of a changing word
