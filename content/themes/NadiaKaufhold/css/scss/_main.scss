@@ -22,7 +22,8 @@ body, html {
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	background-color:$background;
+	background:url('../img/gradient.jpg')no-repeat center center;
+    background-attachment: fixed;
 	color:#111;
 }
 body.home,
@@ -54,6 +55,12 @@ a:focus {
 	padding:132px 15px 15px;
 	@include media(min-width 768px) {
        padding:90px 15px 70px;
+    }
+}
+.home .wrap {
+	padding:132px 15px 15px;
+	@include media(min-width 768px) {
+       padding:100px 15px 12px;
     }
 }
 #wall {
@@ -119,6 +126,7 @@ a:focus {
 	margin: 0;
 	padding: 16px 0;
 	width: 100%;
+	border:1px solid #232323;
 	@include transition(all 0.5s ease-in);
 	background-color: white;
 	
@@ -129,7 +137,11 @@ a:focus {
 		padding:0;
 	}
 }
-
+body.page-template-page-about #main-nav,
+body.home #main-nav  {
+	border:none;
+	background: transparent;
+}
 /* logo */
 #logo {
 	position: relative;
@@ -208,6 +220,7 @@ a:focus {
 	border-radius:0;
 	border:none;
 	box-shadow:none!important;
+	background:transparent;
 }
 #home .flexslider .slides,
 #home .flexslider .slides li{
@@ -224,6 +237,9 @@ a:focus {
 	height: 100%;
 	background: 50% 50% no-repeat;
 	background-size: cover;
+	@include media($mobile){
+		background: 0 0 no-repeat;
+	}
 }
 
 /* BLOG & ARCHIVE
@@ -471,6 +487,15 @@ h1.oops a:hover {
 				display: block;
 			}
 		}
+		.caption {
+			position:absolute;
+			.caption-inner{
+				p {
+					font-size:0.7em;
+					padding-right:6em
+				}
+			}
+		}
 	}
 }
 .cssanimations #wall article {
@@ -558,6 +583,7 @@ h1.oops a:hover {
 	top:50%;
 	position:fixed;
 	margin-top:-24px;
+	z-index:99;
 	a {	
 		font-size: em(14);
 		background-color:white;
@@ -607,5 +633,117 @@ h1.oops a:hover {
 	}
 	#arrow-up:hover {
 		color:$hover
+	}
+}
+
+
+/* nk-words */
+#wording{
+	position:absolute;
+	width:200px;
+	top:55%;
+	height:40px;
+	margin-top:-20px;
+	margin-left:-300px;
+	right:0;
+	@include media($mobile){
+		left:30px!important;
+		margin-left:0;
+		color:white;
+	}
+	@include media(768px){
+		margin-left:-200px;
+		width:200px;
+	}
+	@include media(990px){
+		margin-left:-300px;
+		width:300px;
+	}
+
+}
+.nk-words {
+	display: inline;
+	position: relative;
+}
+.words-wrapper {
+	display: inline-block;
+	position: relative;
+	text-align: left;
+	vertical-align: top;
+	overflow: hidden;
+	font-family: $font-stack;
+	font-size: em(20);
+	text-transform:capitalize;
+	@include media($mobile){
+		font-size: em(18);
+	}
+}
+.words-wrapper b {
+  display: inline-block;
+  position: absolute;
+  white-space: nowrap;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  @include media($mobile){
+		font-size: em(14);
+		color:white
+	}
+}
+.words-wrapper b.is-visible {
+  position: relative;
+}
+.no-js .words-wrapper b {
+  opacity: 0;
+}
+.no-js .words-wrapper b.is-visible {
+  opacity: 1;
+}
+
+.nk-words.type .words-wrapper::after {
+	/* vertical bar */
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	bottom: auto;
+	@include transform(translateY(-50%));
+	height: 90%;
+	width: 1px;
+	background-color:#232323
+}
+
+.nk-words.type .words-wrapper.waiting::after {
+	@include animation(pulse 1s infinite);
+}
+.nk-words.type b {
+  visibility: hidden;
+  font-weight: normal
+}
+.nk-words.type b.is-visible {
+  visibility: visible;
+}
+.nk-words.type i {
+  position: absolute;
+  visibility: hidden;
+  font-style: normal
+}
+.nk-words.type i.in {
+  position: relative;
+  visibility: visible;
+}
+
+@include keyframes(pulse) {
+	0% {
+		opacity:0;
+   		@include transform(translateY(-50%) scale(1));
+	} 
+	40% {
+		opacity:0.9;
+   		@include transform(translateY(-50%) scale(0.9));
+	}
+	100% {
+		opacity:0;
+   		@include transform(translateY(-50%) scale(0));
 	}
 }

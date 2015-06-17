@@ -26,14 +26,6 @@
 							
 							<figure class="article_inner">
 
-								<div class="article_overlay">
-									<div class="overlay-inner">
-										<div>
-											<h2>{{ nk_rep.wall_capt }}</h2>
-										</div>
-									</div>
-								</div><!-- .article_overlay -->
-
 								{% if nk_rep.rep_thumb_size == 'ThWidth' %}
 									<img src="{{TimberImage(nk_rep.wall_img).src|resize(100)}}" alt="{{site.name}} - {{nk_rep.title}}"/>
 								{% elseif nk_rep.rep_thumb_size == 'XSWidth' %}
@@ -57,6 +49,14 @@
 								{% endif %}
 
 							</figure><!-- figure -->
+							
+							{% if nk_rep.wall_capt %}
+								<div class="caption">
+									<div class="caption-inner">	
+										<p>{{ nk_rep.wall_capt }}</p>						
+									</div>
+								</div><!-- .article_overlay -->
+							{% endif %}
 
 						{% endif %}
 
