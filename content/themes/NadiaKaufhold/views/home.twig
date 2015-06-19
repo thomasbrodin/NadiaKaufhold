@@ -2,15 +2,14 @@
 
 {% block content %}
 	
-	<div id="inner" class="blog" role="main">
+	<div id="inner" class="blog" role="main" class="clearfix">
 
-			{% for post in posts %}
-				{% include 'partials/tease.twig' %}
-			{% endfor %}
-		</div>
-
-    </div>   
-         
-	{% include 'partials/social-menu.twig' %}   
-
+		{% for post in posts %}
+			{% include 'partials/tease.twig' %}
+		{% endfor %}
+	
+	{% include 'partials/social-menu.twig' %}  
+	
+	</div>
+ 
 {% endblock %}

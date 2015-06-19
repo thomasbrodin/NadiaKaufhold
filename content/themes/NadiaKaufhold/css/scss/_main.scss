@@ -262,6 +262,7 @@ body.home #main-nav.scrolled {
 /* BLOG & ARCHIVE
 -------------------------------------------------- */
 #inner {
+	position: relative;
 	article {
 		@include outer-container(80rem);
 		margin-bottom: 150px;
@@ -650,7 +651,7 @@ h1.oops a:hover {
 	display:none;
 	@include media(min-width 768px) {
 		display: block;
-		margin-bottom: -58px;
+		margin-bottom: -45px;
 	}	
 	span{
 		text-align: left;
@@ -678,14 +679,14 @@ h1.oops a:hover {
 
 /* social menu */
 #socials {
-  position: fixed;
-  bottom: 12px;
+  position: absolute;
+  bottom: 0;
   left:0;
   width:100%;
+  margin-bottom: -58px;
   .inner {
   	@include outer-container(80rem);
   	text-align:center;
-  	padding-right: 15px;
   	.pull-right{
   		width:125px;
   		float:right;  	
@@ -716,7 +717,10 @@ h1.oops a:hover {
   }
 }
 .single #socials .inner {
-	padding-right:80px
+	padding-right:15px
+}
+.blog #socials {
+	margin-bottom: -210px;
 }
 
 /* nk-words */
