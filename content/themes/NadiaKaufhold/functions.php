@@ -28,6 +28,8 @@
 			add_action('wp_enqueue_scripts', array($this, 'load_scripts'));	
 			add_action('wp_enqueue_scripts', array($this, 'load_styles'));
 
+			add_action( 'widgets_init', array($this, 'hex_widgets_init' ));
+
 			add_action('init', array($this,  'removeHeadLinks'));
 
 			parent::__construct();
@@ -57,6 +59,17 @@
 		}
 		function load_styles() {
 			wp_enqueue_style( 'custom', THEME_URL . '/css/main.css'); 
+		}
+
+		function hex_widgets_init() {
+			register_sidebar( array(
+				'name' => 'Blog Sidebar',
+				'id' => 'blog-sidebar',
+				'before_widget' => '<div class="widget">',
+				'after_widget' => '</div>',
+				'before_title' => '<h2>',
+				'after_title' => '</h2>',
+				) );
 		}
 
 		function removeHeadLinks() {

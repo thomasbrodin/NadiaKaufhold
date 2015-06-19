@@ -22,9 +22,9 @@ body, html {
 	width: 100%;
 	height: 100%;
 	margin: 0;
+	color:#111;
 	background:url('../img/gradient.jpg')no-repeat center center;
     background-attachment: fixed;
-	color:#111;
 }
 body.home,
 body.page-template-page-about{
@@ -69,7 +69,6 @@ a:focus {
 }
 #wall {
 	position: relative;
-	z-index: 0;
 }
 .loading {
 	display:none;
@@ -520,7 +519,7 @@ h1.oops a:hover {
 			position:absolute;
 			.caption-inner{
 				p {
-					font-size:0.7em;
+					font-size:0.9em;
 					padding-right:6em
 				}
 			}
@@ -677,6 +676,48 @@ h1.oops a:hover {
 	}
 }
 
+/* social menu */
+#socials {
+  position: fixed;
+  bottom: 12px;
+  left:0;
+  width:100%;
+  .inner {
+  	@include outer-container(80rem);
+  	text-align:center;
+  	padding-right: 15px;
+  	.pull-right{
+  		width:125px;
+  		float:right;  	
+	  	span {
+	  		padding:.6em 1em .8em 1em;
+	  		font-size: em(14);
+			background-color:white;
+			text-transform: lowercase;
+			letter-spacing: 5px;
+			cursor: pointer;
+			display: block;
+	  	}
+	  	.links {
+	  		display: none;
+	  		background-color:white;
+	  		padding:0 1em .6em 1em;
+	  		a {
+				display: block;
+				margin: 0 0 3px;
+				padding: 0;
+				text-decoration: none;
+				font-size: em(14);
+				text-transform: lowercase;
+				letter-spacing: 5px;
+	  		}
+	  	}
+	}
+  }
+}
+.single #socials .inner {
+	padding-right:80px
+}
 
 /* nk-words */
 #wording{

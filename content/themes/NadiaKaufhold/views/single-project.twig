@@ -20,7 +20,7 @@
 					               	  
 			    {% for nk_rep in post.get_field('rep_img') %}
 					{% set th_padding = nk_rep.rep_thumb_pad|join(' ') %}
-			    	<article class="{% if th_padding %} {{ th_padding }}{% endif %}">
+			    	<article class="{% if th_padding %} {{ th_padding }}{% endif %}"{% if nk_rep.wall_capt %} style="margin-bottom:30px"{% endif %}>
 					
 						{% if nk_rep.wall_img %}
 							
@@ -74,5 +74,7 @@
 		</div><!-- single-footer -->
 
     </section><!-- #wall -->
+	
+	{% include 'partials/social-menu.twig' %}   
 
 {% endblock %}
