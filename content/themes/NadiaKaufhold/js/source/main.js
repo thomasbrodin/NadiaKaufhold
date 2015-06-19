@@ -242,6 +242,11 @@ jQuery(document).ready(function($) {
 			$('html,body').animate({scrollTop: 0}, 500);
 		});
 	}
+	if ($('#socials').length ) {
+		$('.inner span').click(function () {
+			$('.links').toggle();
+		});
+	}
 	/* ============================================================= Overlay thumbnails */
 	$('.article_inner').bind('mouseenter',function() {
 		var height = $(this).children('img').height();
