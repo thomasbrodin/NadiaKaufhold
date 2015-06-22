@@ -25,7 +25,6 @@ jQuery(document).ready(function($) {
 		botPad = parseInt($(".wrap").css('padding-bottom').replace("px", ""),10);
 		wrapPadding = topPad+botPad;
 		windowMax = $(window).height();
-		console.log(wrapPadding);
 		$('#home').css({ height:(windowMax-wrapPadding)});
 	}
 	if ( $("#home").length ) {
@@ -44,7 +43,8 @@ jQuery(document).ready(function($) {
 			revealDuration = 600,
 			revealAnimationDelay = 1500;
 		
-		initHeadline();
+		setTimeout(initHeadline, 3000);
+
 		$('#home .flexslider').flexslider({
 			controlsContainer: "#controls",
 			controlNav: false,
