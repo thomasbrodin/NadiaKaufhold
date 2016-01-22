@@ -1,4 +1,4 @@
-/* 
+/*
 	Copyright (C) Hotel Existence LLC - All Rights Reserved
 	Unauthorized copying of this file via any medium is strictly prohibited
 	Proprietary and confidential
@@ -38,7 +38,7 @@ a {
 	padding-bottom: 2px;
 	@include transition(all 0.3s ease-out);
 }
-a:hover, 
+a:hover,
 a:focus {
 	color: $hover;
 	text-decoration: none;
@@ -52,7 +52,7 @@ a:focus {
 	color: $hover;
 }
 .wrap {
-	@include outer-container(80rem);	
+	@include outer-container(80rem);
 	display:none;
 	padding:132px 15px 15px;
 	@include media(min-width 768px) {
@@ -138,7 +138,7 @@ a:focus {
 	@include transition(all 0.5s ease-in);
 	background-color: white;
 	.container {
-		@include outer-container(80rem);	
+		@include outer-container(80rem);
 	}
 	&.scrolled {
 		padding:0;
@@ -172,7 +172,7 @@ body.home #main-nav.scrolled {
     	}
 	    h1 {
 			display: none;
-		}	
+		}
 		&:hover {
 			border:none;
 		}
@@ -290,7 +290,6 @@ body.home #main-nav.scrolled {
  				font-size: em(12);
  				line-height: 1.7;
   				letter-spacing: 0.02em;
-  				border-bottom:1px solid #ccc;
   				padding-bottom:2em
 			}
 		}
@@ -312,9 +311,9 @@ body.home #main-nav.scrolled {
 	}
 }
 
-/* PAGE 
+/* PAGE
 -------------------------------------------------- */
-.page-content{ 
+.page-content{
 	p {
 		font-family: $font-stack;
 		padding-right:0;
@@ -619,7 +618,7 @@ h1.oops a:hover {
 		margin-top: -35px;
   		top: 100%;
 	}
-	a {	
+	a {
 		font-size: em(14);
 		background-color:white;
 		text-transform: lowercase;
@@ -661,7 +660,7 @@ h1.oops a:hover {
 	@include media(min-width 768px) {
 		display: block;
 		margin-bottom: -45px;
-	}	
+	}
 	span{
 		text-align: left;
 		padding-left: 15px
@@ -700,8 +699,8 @@ h1.oops a:hover {
   	.pull-right{
   		width:125px;
   		float:right;
-  		@include media($mobile){  
-  			margin: 0 auto;	
+  		@include media($mobile){
+  			margin: 0 auto;
   			float: none;
   		}
 	  	span {
@@ -838,7 +837,7 @@ h1.oops a:hover {
 	0% {
 		opacity:0;
    		@include transform(translateY(-50%) scale(1));
-	} 
+	}
 	40% {
 		opacity:0.9;
    		@include transform(translateY(-50%) scale(0.9));
