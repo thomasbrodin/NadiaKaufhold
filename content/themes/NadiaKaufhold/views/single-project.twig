@@ -3,7 +3,7 @@
 {% block content %}
 
     <section id="wall" role="main" class="clearfix">
-			
+
 			{% if post.next %}
 				<div id="next-project">
 					<a href="{{post.next.link}}">next</a>
@@ -16,65 +16,68 @@
 				</div>
 			{% endif %}
 
-	    	 <div id="single-content">
-					               	  
-			    {% for nk_rep in post.get_field('rep_img') %}
-					{% set th_padding = nk_rep.rep_thumb_pad|join(' ') %}
-			    	<article class="{% if th_padding %} {{ th_padding }}{% endif %}"{% if nk_rep.wall_capt %} style="margin-bottom:30px"{% endif %}>
-					
-						{% if nk_rep.wall_img %}
-							
-							<figure class="article_inner">
+	    <div id="single-content">
 
-								{% if nk_rep.rep_thumb_size == 'ThWidth' %}
-									<img src="{{TimberImage(nk_rep.wall_img).src|resize(100)}}" alt="{{site.name}} - {{nk_rep.title}}"/>
-								{% elseif nk_rep.rep_thumb_size == 'XSWidth' %}
-									<img src="{{TimberImage(nk_rep.wall_img).src|resize(150)}}" alt="{{site.name}} - {{nk_rep.title}}"/>
-								{% elseif nk_rep.rep_thumb_size == 'SWidth' %}
-									<img src="{{TimberImage(nk_rep.wall_img).src|resize(200)}}" alt="{{site.name}} - {{nk_rep.title}}"/>
-								{% elseif nk_rep.rep_thumb_size == 'SMWidth' %}
-									<img src="{{TimberImage(nk_rep.wall_img).src|resize(250)}}" alt="{{site.name}} - {{nk_rep.title}}"/>
-								{% elseif nk_rep.rep_thumb_size == 'MWidth' %}
-									<img src="{{TimberImage(nk_rep.wall_img).src|resize(350)}}" alt="{{site.name}} - {{nk_rep.title}}"/>	
-								{% elseif nk_rep.rep_thumb_size == 'LWidth' %}
-									<img src="{{TimberImage(nk_rep.wall_img).src|resize(450)}}" alt="{{site.name}} - {{nk_rep.title}}"/>
-								{% elseif nk_rep.rep_thumb_size == 'XLWidth' %}
-									<img src="{{TimberImage(nk_rep.wall_img).src|resize(520)}}" alt="{{site.name}} - {{nk_rep.title}}"/>
-								{% elseif nk_rep.rep_thumb_size == 'XXLWidth' %}
-									<img src="{{TimberImage(nk_rep.wall_img).src|resize(600)}}" alt="{{site.name}} - {{nk_rep.title}}"/>
-								{% elseif nk_rep.rep_thumb_size == 'XXXLWidth' %}
-									<img src="{{TimberImage(nk_rep.wall_img).src|resize(900)}}" alt="{{site.name}} - {{nk_rep.title}}"/>
-								{% else %}
-									<img src="{{TimberImage(nk_rep.wall_img).src}}" />
-								{% endif %}
+			  {% for project in post.get_field('grid_proj') %}
 
+          {% if project.acf_fc_layout == 'main' %}
+			    	<article class="full{% if TimberImage(project.main_img).caption %} margined{% endif %}">
+
+              <figure>
+                <a class="fancybox" href="{{TimberImage(project.main_img).src}}">
+								  <img src="{{TimberImage(project.main_img).src|resize(1000)}}" />
+                </a>
 							</figure><!-- figure -->
-							
-							{% if nk_rep.wall_capt %}
-								<div class="caption">
-									<div class="caption-inner">	
-										<p>{{ nk_rep.wall_capt }}</p>						
-									</div>
-								</div><!-- .article_overlay -->
-							{% endif %}
+              {% if TimberImage(project.main_img).caption %}
+  							<div class="caption">
+  								<div class="caption-inner">
+  									<p>{{TimberImage(project.main_img).caption}}</p>
+  								</div>
+  							</div><!-- .caption-->
+              {% endif %}
+					  </article><!-- article -->
+          {% endif %}
 
-						{% endif %}
+        {% if project.acf_fc_layout == '2_col' %}
 
-					</article><!-- article -->
-				{% endfor %}
+          <article class="half{% if TimberImage(project.left_col).caption %} margined{% endif %}">
+            <figure>
+              <a class="fancybox" href="{{TimberImage(project.left_col).src}}">
+                <img src="{{TimberImage(project.left_col).src|resize(500)}}" />
+              </a>
+            </figure><!-- figure -->
+            {% if TimberImage(project.left_col).caption %}
+              <div class="caption">
+                <div class="caption-inner">
+                  <p>{{TimberImage(project.left_col).caption}}</p>
+                </div>
+              </div><!-- .caption-->
+            {% endif %}
+          </article><!-- article -->
+
+          <article class="half{% if TimberImage(project.right_col).caption %} margined{% endif %} last">
+            <figure>
+              <a class="fancybox" href="{{TimberImage(project.right_col).src}}">
+                <img src="{{TimberImage(project.right_col).src|resize(500)}}" />
+              </a>
+            </figure><!-- figure -->
+            {% if TimberImage(project.right_col).caption %}
+              <div class="caption">
+                <div class="caption-inner">
+                  <p>{{TimberImage(project.right_col).caption}}</p>
+                </div>
+              </div><!-- .caption-->
+            {% endif %}
+          </article><!-- article -->
+
+        {% endif %}
+			{% endfor %}
 		</div><!-- #single -->
-		
+
 		<div class="single-footer">
 			<span>Copyright - {{"now"|date('Y')}}</span>
-
-			<!-- <div id="arrow-up">
-			   	<span id="smooth-scroll">Top</span>
-			</div> --> 
-
 		</div><!-- single-footer -->
-		
-		{% include 'partials/social-menu.twig' %}   
 
-    </section><!-- #wall -->
-	
+  </section><!-- #wall -->
+
 {% endblock %}

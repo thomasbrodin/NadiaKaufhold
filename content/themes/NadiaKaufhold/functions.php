@@ -1,20 +1,20 @@
 <?php
 	include_once ('inc/tb-plugins.php');
-	// include_once('inc/tb-acf.php');
-	
+	include_once('inc/nk-acf.php');
+
 	if (!class_exists('Timber')){
 		add_action( 'admin_notices', function(){
 			echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . admin_url('plugins.php#timber') . '">' . admin_url('plugins.php') . '</a></p></div>';
 		});
 		return;
 	}
-	// if( function_exists('acf_add_options_page') ) {
-	// 	acf_add_options_page();
-	// }
+	if( function_exists('acf_add_options_page') ) {
+		acf_add_options_page();
+	}
 	define('THEME_URL', get_template_directory_uri());
-	
+
 	class StarterSite extends TimberSite {
-		
+
 		function __construct(){
 
 			add_theme_support('post-thumbnails');
@@ -25,7 +25,7 @@
 
 			add_filter('acf/options_page/settings', array($this, 'options_page_settings'));
 
-			add_action('wp_enqueue_scripts', array($this, 'load_scripts'));	
+			add_action('wp_enqueue_scripts', array($this, 'load_scripts'));
 			add_action('wp_enqueue_scripts', array($this, 'load_styles'));
 
 			add_action( 'widgets_init', array($this, 'hex_widgets_init' ));
@@ -36,7 +36,7 @@
 		}
 
 		function add_to_context($data){
-			// $context['options'] = get_fields('options');
+			$data['options'] = get_fields('options');
 			$data['menu'] = new TimberMenu();
 			return $data;
 		}
@@ -53,12 +53,12 @@
 			wp_enqueue_script( 'main-compressed', THEME_URL . '/js/main-min.js', array('jquery'), '', true);
 			//script var
 			wp_localize_script( 'main-compressed', 'script_vars', array(
-			 	'themeUrl' => get_template_directory_uri() 
+			 	'themeUrl' => get_template_directory_uri()
 			 	)
 			);
 		}
 		function load_styles() {
-			wp_enqueue_style( 'custom', THEME_URL . '/css/main.css'); 
+			wp_enqueue_style( 'custom', THEME_URL . '/css/main.css');
 		}
 
 		function hex_widgets_init() {

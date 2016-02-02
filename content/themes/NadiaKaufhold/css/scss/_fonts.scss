@@ -1,9 +1,10 @@
 $font-stack: "brandon-grotesque",sans-serif;
 $text:#232323;
 $background:#f8f5f6;
-$hover:#AA9483;
+$hover:#82858E;
 
 $mobile: new-breakpoint(max-width 768px 3);
+$largescreen: new-breakpoint(min-width 1200px);
 
 
 /* TYPOS

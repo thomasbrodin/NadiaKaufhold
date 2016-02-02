@@ -2,11 +2,17 @@
 
 {% block content %}
 
-	<div id="inner" role="main">
+	<div id="inner" class="blog" role="main" class="clearfix">
+
+		<h5>{{title}}</h5>
+
 		{% for post in posts %}
 			{% include 'partials/tease.twig' %}
 		{% endfor %}
 
 	</div>
+
+	{% include 'partials/pagination.twig' %}
+
 
 {% endblock %}

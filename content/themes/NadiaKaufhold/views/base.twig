@@ -3,29 +3,31 @@
 {% endblock %}
 </head>
     <body class="{{body_class}}" data-source="base.twig">
-        
+
         <div class="large-bd to-top white"></div>
         <div class="large-bd to-right white"></div>
         <div class="large-bd to-bottom white"></div>
         <div class="large-bd to-left white"></div>
         <!-- borders-->
-        
-       {% include 'partials/loader.twig' %}    
 
-        <div class="loading"> 
+       {% include 'partials/loader.twig' %}
+
+        <div class="loading">
 
             {% include 'partials/header.twig' %}
-               
-                <div class="wrap">                     
+
+                <div class="wrap">
+
+                  {% include 'partials/nav.twig' %}
 
                     {% block content %}
                         Sorry, no content
                     {% endblock %}
-                    
+
                 </div><!-- #wrap -->
 
-            {{ function('wp_footer') }} 
+            {{ function('wp_footer') }}
         </div>
-          
+
     </body>
 </html>

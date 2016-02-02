@@ -1,0 +1,12 @@
+<nav{% if options.header_blog %} class="low"{% endif %}>
+  <div class="inner">
+    <div id="menu_icon"></div>
+    <div id="menu">
+      {% for item in menu.get_items %}
+        <a href="{{item.get_path}}">
+          <span class="{{item.current ? ' active'}}">{{item.title}}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</nav>

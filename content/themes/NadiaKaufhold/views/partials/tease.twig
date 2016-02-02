@@ -2,13 +2,25 @@
 	{% block content %}
 		<div class="post-info">
 			<h2>{{post.title}}</h2>
-			{{post.get_preview(200,'','',false)}}
+			<p class="date">{{post.date}}</p>
+			<p>{{post.get_preview('Read More')}}</p>
 		</div>
 		<div class='post-img'>
 			{% if post.get_thumbnail %}
-				<img src="{{post.thumbnail.src}}" />
-			{% else %}
-				<img src="http://placehold.it/300?text=Need+Feature+Image">
+				<article class="full">
+					<img src="{{post.thumbnail.src|resize(800)}}" />
+				</article>
+			{% endif %}
+
+			{% if post.get_field('feat_img_1') %}
+				<article class="half">
+					<img src="{{TimberImage(post.get_field('feat_img_1')).src|resize(350, 350, 'center')}}" />
+				</article>
+			{% endif %}
+			{% if post.get_field('feat_img_2') %}
+				<article class="half">
+					<img src="{{TimberImage(post.get_field('feat_img_2')).src|resize(350, 350, 'center')}}" />
+				</article>
 			{% endif %}
 		</div>
 	{% endblock %}

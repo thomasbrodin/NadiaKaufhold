@@ -1,15 +1,20 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	
+
 	<div id="inner" class="blog" role="main" class="clearfix">
+
+		{% if options.header_blog %}
+			<img class="header" src="{{TimberImage(options.header_blog).src}}" alt="Nadia Kaufhold | Blog">
+		{% endif %}
 
 		{% for post in posts %}
 			{% include 'partials/tease.twig' %}
 		{% endfor %}
-	
-	{% include 'partials/social-menu.twig' %}  
-	
+
 	</div>
- 
+
+	{% include 'partials/pagination.twig' %}
+
+
 {% endblock %}

@@ -1,26 +1,16 @@
 {% block header %}
-    
-        <header id="main-nav" class="navbar" role="navigation">
-            <div class="container"> 
-                <div id="logo">
+
+        <header id="main" class="navbar" role="navigation">
+            <div class="container">
+                <div class="brand">
                     <a class="btn-link" href="/" rel="home">
                         <h1>{{bloginfo('name')}}</h1>
-                        {% include 'img/nk.svg' %}
+                        {% if options.header_logo %}
+                          <img class="logo" src="{{TimberImage(options.header_logo).src}}" alt="Nadia Kaufhold">
+                        {% endif %}
                     </a>
                 </div><!-- logo-->
-                <div id="topNav">
-                    <nav id="main-nav-content" role="navigation">
-                        <ul id="menu-main-nav" class="nav">
-                        {% for item in menu.get_items %}
-                            <li class="nav-main-item{{item.current ? ' active'}}{% if cpt_current == item.title %} active{% endif %}">
-                                <a href="{{item.get_path}}">{{item.title}}</a>
-                            </li>
-                        {% endfor %}
-                        </ul>
-                    </nav><!-- nav -->
-                </div>
             </div>
-
         </header><!-- header-->
 
 {% endblock %}

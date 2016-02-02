@@ -2,18 +2,93 @@
 
 {% block content %}
 
+	<div id="inner" class="single" role="main">
 
-	<article class="single">
-		<section class="article-content">
-			
-			<div class="article-body">
-				<h2 class="h2">{{post.title}}</h2>
-				{{post.content}}
+		<section class="content">
+
+			<div class="post-info">
+				<h2>{{post.title}}</h2>
+				<p class="date">{{post.date}}</p>
+				<p>{{post.content}}</p>
 			</div>
-			
+
+			<div class='post-img'>
+
+				{% if post.get_thumbnail %}
+					<article class="full">
+						<img src="{{post.thumbnail.src|resize(1000)}}" />
+					</article>
+				{% endif %}
+
+				{% if post.get_field('feat_img_1') %}
+					<article class="half">
+						<img src="{{TimberImage(post.get_field('feat_img_1')).src|resize(500, 500, 'center')}}" />
+					</article>
+				{% endif %}
+				{% if post.get_field('feat_img_2') %}
+					<article class="half last">
+						<img src="{{TimberImage(post.get_field('feat_img_2')).src|resize(500, 500, 'center')}}" />
+					</article>
+				{% endif %}
+
+				{% for blog in post.get_field('grid_blog') %}
+
+					{% if blog.acf_fc_layout == 'main' %}
+						<article class="full{% if TimberImage(blog.main_img).caption %} margined{% endif %}">
+
+							<figure>
+								<a class="fancybox" href="{{TimberImage(blog.main_img).src}}">
+									<img src="{{TimberImage(blog.main_img).src|resize(1000)}}" />
+								</a>
+							</figure><!-- figure -->
+							{% if TimberImage(blog.main_img).caption %}
+								<div class="caption">
+									<div class="caption-inner">
+										<p>{{TimberImage(blog.main_img).caption}}</p>
+									</div>
+								</div><!-- .caption-->
+							{% endif %}
+						</article><!-- article -->
+					{% endif %}
+
+					{% if blog.acf_fc_layout == '2_col' %}
+
+						<article class="half{% if TimberImage(blog.left_col).caption %} margined{% endif %}">
+							<figure>
+								<a class="fancybox" href="{{TimberImage(blog.left_col).src}}">
+									<img src="{{TimberImage(blog.left_col).src|resize(500)}}" />
+								</a>
+							</figure><!-- figure -->
+							{% if TimberImage(blog.left_col).caption %}
+								<div class="caption">
+									<div class="caption-inner">
+										<p>{{TimberImage(blog.left_col).caption}}</p>
+									</div>
+								</div><!-- .caption-->
+							{% endif %}
+						</article><!-- article -->
+
+						<article class="half{% if TimberImage(blog.right_col).caption %} margined{% endif %} last">
+							<figure>
+								<a class="fancybox" href="{{TimberImage(blog.right_col).src}}">
+									<img src="{{TimberImage(blog.right_col).src|resize(500)}}" />
+								</a>
+							</figure><!-- figure -->
+							{% if TimberImage(blog.right_col).caption %}
+								<div class="caption">
+									<div class="caption-inner">
+										<p>{{TimberImage(blog.right_col).caption}}</p>
+									</div>
+								</div><!-- .caption-->
+							{% endif %}
+						</article><!-- article -->
+
+					{% endif %}
+				{% endfor %}
+
+			</div>
 		</section>
 
-	</article>
-
+	</div>
 
 {% endblock %}

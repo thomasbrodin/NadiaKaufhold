@@ -17,15 +17,13 @@
 		echo 'Timber not activated. Make sure you activate the plugin in <a href="/wp-admin/plugins.php#timber">/wp-admin/plugins.php</a>';
 	}
 	$context = Timber::get_context();
-	$args = array('post_type' => array('post'), 'numberposts' => -1);
-	$context['posts'] = Timber::get_posts($args);
+
+	$context['posts'] = Timber::get_posts();
 	$templates = array('index.twig');
 	if (is_home()){
-		$context['actu_title'] = 'Actualites';
-		$context['wp_title'] = 'Procoves - Actualites';
+		$context['pagination'] = Timber::get_pagination();
+		$context['categories'] = Timber::get_terms('category', array('exclude' => 1));
 		array_unshift($templates, 'home.twig');
 	}
-	
+
 	Timber::render($templates, $context);
-
-
