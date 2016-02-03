@@ -174,7 +174,8 @@ body.blog #main  {
 				@include transform(translateX(-65%));
 				@include media($mobile) {
 					max-height: 80px;
-					margin-top: 0
+					margin-top: 0;
+					@include transform(translateX(-70%));
 				}
 			}
 	    h1 {
@@ -191,8 +192,10 @@ body.blog #main  {
 			padding-left:24px;
 			color:$hover;
 			@include media($mobile) {
+				margin-left:-25px;
+				padding-left:0;
 				font-size: 1.2em;
-				word-spacing: 4em;
+				word-spacing: 3.5em;
 			}
 		}
 		&:hover {
@@ -267,6 +270,9 @@ nav {
 			color:$text;
 			text-transform: lowercase;
 			padding-right: 4px;
+			@include media($mobile) {
+				text-align: right;
+			}
 			&:hover {
 				span {
 					color:$hover
@@ -345,9 +351,14 @@ nav {
 		background-size: cover;
 	}
 }
-#home .flex-control-paging li a {
-	width:8px;
-	height:8px;
+#home .flex-control-paging {
+	@include media($mobile) {
+		display: none
+	}
+	li a {
+		width:8px;
+		height:8px;
+	}
 }
 
 /* BLOG & ARCHIVE
@@ -616,7 +627,7 @@ h1.oops a:hover {
 	#single-content {
 		padding:0 28px;
 		@include media($mobile) {
-			padding:0
+			padding:0 15px
 		}
 	}
 	article {
@@ -738,10 +749,6 @@ h1.oops a:hover {
 	text-indent: -9999px;
   height: 40px;
 	width:15px;
-	@include media($mobile) {
-		margin-top: -35px;
-  	top: 100%;
-	}
 	a {
 		position: relative;
 		display: block;
@@ -751,7 +758,7 @@ h1.oops a:hover {
 	right:12px;
 	background: url('../img/arrow-right.png') center center no-repeat;
 	@include media($mobile) {
-		right:0;
+		right:4px;
 
 	}
 }
@@ -759,7 +766,7 @@ h1.oops a:hover {
 	left:12px;
 	background: url('../img/arrow-left.png')center center no-repeat;
 	@include media($mobile) {
-		left:0;
+		left:4px;
 	}
 }
 /* SINGLE FOOTER */
