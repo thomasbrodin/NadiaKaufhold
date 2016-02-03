@@ -28,8 +28,10 @@
 		} else if (is_tag()){
 			$data['title'] = single_tag_title('', false);
 		} else if (is_category()){
+			$data['pagination'] = Timber::get_pagination();
+			$data['categories'] = Timber::get_terms('category', array('exclude' => 1));
 			$data['title'] = single_cat_title('', false);
-			array_unshift($templates, 'archive-'.get_query_var('cat').'.twig');
+			array_unshift($templates, 'category.twig');
 		} else if (is_post_type_archive()){
 			$data['cpt_title'] = post_type_archive_title('', false);
 			$data['cpt'] = get_post_type();
@@ -37,5 +39,5 @@
 		}
 
 		$data['posts'] = Timber::get_posts();
-		
+
 		Timber::render($templates, $data);

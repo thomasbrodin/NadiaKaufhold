@@ -3,8 +3,10 @@ jQuery(document).ready(function($) {
 		scrolled = Math.max(0, $(window).scrollTop());
 		if ( scrolled >= 10 ){
             $('header').addClass('scrolled');
+						$('nav').addClass('scrolled');
         } else {
-			$('header').removeClass('scrolled');
+					$('header').removeClass('scrolled');
+					$('nav').removeClass('scrolled');
         }
 	});
 	/* ============================================================= home */
