@@ -216,6 +216,7 @@ nav {
   width:100%;
 	height:14px;
 	top:138px;
+	z-index: 2;
 	@include transition(all 0.5s ease-in);
 	@include media($mobile) {
 		top:25px;
@@ -307,7 +308,7 @@ nav {
 		}
 	}
 }
-.single nav {
+.single:not(.single-project) nav {
 	top:230px;
 	&.scrolled {
 		top:138px;
@@ -367,6 +368,10 @@ nav {
 	position: relative;
 	h5 {
 		text-align: center;
+		margin-left: -16px;
+		@include media($mobile) {
+			margin-left: 0
+		}
 	}
 	img.header {
     margin: 0 auto;
@@ -420,6 +425,13 @@ nav {
 					display: block;
 					letter-spacing: 0.04em;
 					text-transform: uppercase;
+					&:after {
+						content: "+";
+				    position: relative;
+				    float: right;
+				    top: -5px;
+				    font-size: 22px;
+					}
 				}
 			}
 		}
@@ -451,6 +463,10 @@ nav {
 /* PAGE
 -------------------------------------------------- */
 .page-content{
+	padding: 0 122px;
+	@include media($mobile) {
+		padding:0;
+	}
 	p {
 		font-family: $font-stack;
 		text-align: center;
@@ -496,12 +512,8 @@ nav {
 }
 
 #press {
-	padding: 0 122px;
 	p{
 		text-align: justify!important;
-	}
-	@include media($mobile) {
-		padding:0;
 	}
 	article {
 		@include span-columns(4);
@@ -805,7 +817,13 @@ h1.oops a:hover {
 		position: relative;
 		article {
 		 @include span-columns(3);
-		 @include omega(3n+1);
+		 @include omega(4n);
+		 @include media($mobile) {
+			 @include omega-reset(4n);
+			 @include span-columns(2);
+			 @include omega(2n);
+			 margin-bottom: 25px
+		 }
 		 figure {
 			 position: relative;
 				margin: 0 auto;
@@ -845,7 +863,7 @@ h1.oops a:hover {
 							margin: .7em 0;
 							font-weight: 600;
 							@include media($mobile) {
-								font-size: .4em;
+								font-size: 1em;
 							}
 						}
 					}
@@ -855,7 +873,10 @@ h1.oops a:hover {
 	}
 }
 .cssanimations .category figure h5 {
-	opacity:0
+	opacity:0;
+	@include media($mobile) {
+		opacity: 1!important
+	}
 }
 .category figure:hover {
 	background:#111
