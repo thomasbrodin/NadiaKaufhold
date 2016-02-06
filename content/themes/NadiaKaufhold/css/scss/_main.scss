@@ -314,7 +314,8 @@ nav {
 		top:138px;
 	}
 	@include media($mobile) {
-		top:25px!important
+		top:25px!important;
+		z-index: 9999!important
 	}
 }
 /* HOME
@@ -353,6 +354,7 @@ nav {
 	}
 }
 #home .flex-control-paging {
+	bottom:-35px;
 	@include media($mobile) {
 		display: none
 	}
@@ -393,7 +395,7 @@ nav {
 		.post-info {
 			@include span-columns(3);
 			@include media($mobile){
-				@include span-columns(3);
+				@include span-columns(4);
 			}
 			@include media($largescreen) {
 				margin-left: -122px;
@@ -415,6 +417,14 @@ nav {
 				letter-spacing: 0.02em;
 				padding: 0 0 1em;
 				text-align: justify;
+				&.cat {
+					text-transform: uppercase;
+					color:$hover;
+					letter-spacing: 0.02em;
+					a {
+						color:$hover;
+					}
+				}
 			}
 			a {
 				&.read-more {
@@ -439,7 +449,7 @@ nav {
 			@include span-columns(9);
 			@include omega();
 			@include media($mobile){
-				@include span-columns(3);
+				@include span-columns(4);
 			}
 			img {
 				height:auto;
@@ -515,60 +525,65 @@ nav {
 	p{
 		text-align: justify!important;
 	}
-	article {
-		@include span-columns(4);
-		@include omega(3n+1);
-		margin-bottom: 25px;
-		@include media($mobile) {
-			width:100%;
-			margin-bottom: 15px;
-			@include omega(1n);
-		}
-		figure {
-			margin:0;
-			padding:0;
-			position: relative;
-			background:transparent;
-			@include transition(background 0.35s);
-			&:hover {
-				img:not(.logo_press) {
-					opacity: 0.3!important
-				}
-				figcaption {
-					opacity: 1!important
-				}
+	.articles {
+		@include outer-container();
+		article {
+			@include span-columns(4);
+			@include omega(3n);
+			margin-bottom: 28px;
+			@include media($mobile) {
+				margin-bottom: 15px;
+				@include omega-reset(3n);
+				width:100%!important
 			}
-			img {
-				max-width: 100%;
-				display: block;
-				@include transition(opacity 0.35s);
-				&.logo_press {
-					max-width:170px
+			figure {
+				margin:0;
+				padding:0;
+				position: relative;
+				background:transparent;
+				@include transition(background 0.35s);
+				&:hover {
+					img:not(.logo_press) {
+						opacity: 0.3!important
+					}
+					figcaption {
+						opacity: 1!important
+					}
 				}
-			}
-			div{
-				height: 100%;
-				position: absolute;
-				text-align: center;
-				top: 0;
-				width: 100%;
-				&:before {
-					content: "";
-					display: inline-block;
+				img {
+					max-width: 100%;
+					display: block;
+					@include transition(opacity 0.35s);
+					opacity: 0.6!important;
+					&.logo_press {
+						max-width:170px;
+						opacity: 1!important;
+					}
+				}
+				div{
 					height: 100%;
-					vertical-align: middle;
-				}
-				figcaption {
-					max-width: 90%;
-					display: inline-block;
-					vertical-align: middle;
-					@include backface-visibility(hidden);
-					opacity: 0!important;
-					h2{
-						color:#fff;
-						font-size: em(36);
-						text-transform: uppercase;
-						letter-spacing: 0.02em
+					position: absolute;
+					text-align: center;
+					top: 0;
+					width: 100%;
+					&:before {
+						content: "";
+						display: inline-block;
+						height: 100%;
+						vertical-align: middle;
+					}
+					figcaption {
+						max-width: 90%;
+						display: inline-block;
+						vertical-align: middle;
+						@include backface-visibility(hidden);
+						opacity: 1;
+						h2{
+							color:#fff;
+							font-size: em(36);
+							text-transform: uppercase;
+							letter-spacing: 0.02em
+						}
 					}
 				}
 			}
@@ -764,6 +779,7 @@ h1.oops a:hover {
 	a {
 		position: relative;
 		display: block;
+		height: 100%
 	}
 }
 #next-project {
@@ -951,4 +967,21 @@ h1.oops a:hover {
 
 .fancybox-overlay {
 	background: rgba(254,254,254,0.7);
+}
+_::-webkit-full-page-media, _:future, :root .brand  {
+	margin-left: -50px;
+	@include media($mobile) {
+		margin-left: 0px;
+	}
+}
+
+_::-webkit-full-page-media, _:future, :root .brand a .logo {
+	-webkit-transform: translateX(-25%);
+	transform: translateX(-25%);
+	@include media($mobile) {
+		@include transform(translateX(-70%));
+	}
+}
+_::-webkit-full-page-media, _:future, :root .brand a h1 {
+	padding-left:0
 }

@@ -8,22 +8,24 @@
 			<div class="blurb">
 				{{post.content}}
 			</div>
-			{% for article in post.get_field('press_article') %}
-				<article class="press">
-					<a href="{{article.link}}" target="_blank">
-            <figure>
-          			<img src="{{TimberImage(article.img_article).src|resize(500,500, 'center')}}">
-        			<div>
-        				<figcaption>
-									{% if article.logo_img %}
-										<img class="logo_press" src="{{TimberImage(article.logo_img).src}}" />
-									{% endif %}
-        				</figcaption>
-        			</div>
-        		</figure>
-          </a>
-				</article>
-			{% endfor %}
+			<div class="articles">
+				{% for article in post.get_field('press_article') %}
+					<article class="press">
+						<a href="{{article.link}}" target="_blank">
+	            <figure>
+	          			<img src="{{TimberImage(article.img_article).src|resize(500,500, 'center')}}">
+	        			<div>
+	        				<figcaption>
+										{% if article.logo_img %}
+											<img class="logo_press" src="{{TimberImage(article.logo_img).src}}" />
+										{% endif %}
+	        				</figcaption>
+	        			</div>
+	        		</figure>
+	          </a>
+					</article>
+				{% endfor %}
+			</div>
 		</div>
 
 	</section>
