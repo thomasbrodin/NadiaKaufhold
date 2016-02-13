@@ -17,18 +17,24 @@
 
 				{% if post.get_thumbnail %}
 					<article class="full">
-						<img src="{{post.thumbnail.src|resize(1000)}}" />
+						<a class="fancybox" href="{{post.thumbnail.src}}">
+							<img src="{{post.thumbnail.src|resize(1000)}}" />
+						</a>
 					</article>
 				{% endif %}
 
 				{% if post.get_field('feat_img_1') %}
 					<article class="half">
-						<img src="{{TimberImage(post.get_field('feat_img_1')).src|resize(500, 500, 'center')}}" />
+							<a class="fancybox" href="{{TimberImage(post.get_field('feat_img_1')).src}}">
+								<img src="{{TimberImage(post.get_field('feat_img_1')).src|resize(500, 500, 'center')}}" />
+							</a>
 					</article>
 				{% endif %}
 				{% if post.get_field('feat_img_2') %}
 					<article class="half last">
-						<img src="{{TimberImage(post.get_field('feat_img_2')).src|resize(500, 500, 'center')}}" />
+						<a class="fancybox" href="{{TimberImage(post.get_field('feat_img_2')).src}}">
+							<img src="{{TimberImage(post.get_field('feat_img_2')).src|resize(500, 500, 'center')}}" />
+						</a>
 					</article>
 				{% endif %}
 

@@ -455,9 +455,15 @@ nav {
 				height:auto;
 				max-width:100%;
 			}
+			a {
+				display: block;
+				position: relative;
+			}
 			.full {
 				width:100%;
-				margin-bottom: 15px
+				margin-bottom: 15px;
+				float:left;
+				display: block;
 			}
 			.half {
 				@include span-columns(6);

@@ -8,18 +8,24 @@
 		<div class='post-img'>
 			{% if post.get_thumbnail %}
 				<article class="full">
-					<img src="{{post.thumbnail.src|resize(800)}}" />
+					<a href="{{post.link}}">
+						<img src="{{post.thumbnail.src|resize(800)}}" />
+					</a>
 				</article>
 			{% endif %}
 
 			{% if post.get_field('feat_img_1') %}
 				<article class="half">
-					<img src="{{TimberImage(post.get_field('feat_img_1')).src|resize(350, 350, 'center')}}" />
+					<a href="{{post.link}}">
+						<img src="{{TimberImage(post.get_field('feat_img_1')).src|resize(350, 350, 'center')}}" />
+					</a>
 				</article>
 			{% endif %}
 			{% if post.get_field('feat_img_2') %}
 				<article class="half">
-					<img src="{{TimberImage(post.get_field('feat_img_2')).src|resize(350, 350, 'center')}}" />
+					<a href="{{post.link}}">
+						<img src="{{TimberImage(post.get_field('feat_img_2')).src|resize(350, 350, 'center')}}" />
+					</a>
 				</article>
 			{% endif %}
 		</div>
